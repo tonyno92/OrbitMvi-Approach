@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply from: '../library.gradle'
+
+android {
+
+    packagingOptions {
+        jniLibs {
+            excludes += ['META-INF/*']
+        }
+        resources {
+            excludes += ['META-INF/*']
+        }
+    }
+    namespace 'com.orbitmvi.core.network'
+}
+
+dependencies {
+    implementation Libs.koin
+    implementation Libs.retrofit
+    implementation Libs.retrofit_gson
+    implementation Libs.okhttp_logging
+}

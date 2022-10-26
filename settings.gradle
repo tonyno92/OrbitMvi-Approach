@@ -1,0 +1,7 @@
+include ':app'
+include ':core-mvi'
+include ':core-network'
+include ':core-prefs'
+include ':core-utils'
+include ':feature-country-list'
+include ':feature-country-details'

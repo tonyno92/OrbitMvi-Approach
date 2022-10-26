@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion Android.compile_sdk_version
+    defaultConfig {
+        applicationId "com.orbitmvi.approach"
+        minSdkVersion Android.min_sdk_version
+        targetSdkVersion Android.target_sdk_version
+        versionCode Android.version_code
+        versionName Android.version_name
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {}
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.orbitmvi.approach'
+}
+
+dependencies {
+    implementation project(Modules.core_networks)
+    implementation project(Modules.core_prefs)
+    implementation project(Modules.core_utils)
+    implementation project(Modules.feature_country_list)
+    implementation project(Modules.feature_country_details)
+
+    implementation Libs.appcompat
+    implementation Libs.constraint_layout
+    implementation Libs.koin
+    implementation Libs.ktx
+    implementation Libs.navigation_ktx
+}

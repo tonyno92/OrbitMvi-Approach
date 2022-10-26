@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Feature Details</string>
+    <string name="backdrop">backdrop</string>
+    <string name="overview">Overview</string>
+    <string name="continent">Continent</string>
+    <string name="languages">Languages</string>
+</resources>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/detailAppbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_flag_height"
+        android:fitsSystemWindows="true"
+        android:background="@android:color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/detailCollapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginBottom="@dimen/standard_margin"
+            app:expandedTitleMarginEnd="@dimen/expanded_text_margin_end"
+            app:expandedTitleMarginStart="@dimen/standard_margin"
+            app:expandedTitleTextAppearance="@style/ToolbarText"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/detailFlag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/backdrop"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:tint="@color/black_opacity_50"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/detailToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standard_margin">
+
+            <TextView
+                android:id="@+id/detailOverviewCaption"
+                style="@style/CaptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/overview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                 />
+
+            <TextView
+                android:id="@+id/detailOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin_half"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailOverviewCaption"
+                tools:text="A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. " />
+
+            <TextView
+                android:id="@+id/detailContinentCaption"
+                style="@style/CaptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/continent"
+                app:layout_constraintEnd_toStartOf="@+id/detailLanguagesCaption"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailOverview" />
+
+            <TextView
+                android:id="@+id/detailContinent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin_half"
+                app:layout_constraintEnd_toStartOf="@+id/detailLanguages"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailContinentCaption"
+                tools:text="David Fincher" />
+
+            <TextView
+                android:id="@+id/detailLanguagesCaption"
+                style="@style/CaptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/languages"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/detailContinentCaption"
+                app:layout_constraintTop_toBottomOf="@id/detailOverview" />
+
+            <TextView
+                android:id="@+id/detailLanguages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin_half"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/detailContinent"
+                app:layout_constraintTop_toBottomOf="@id/detailContinentCaption"
+                tools:text="Jim Uhls" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/detailCoatOfArms"
+        android:layout_width="@dimen/coatOfArms_width"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/coatOfArms_width"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_anchor="@id/detailAppbar"
+        app:layout_anchorGravity="bottom|right|end" />
+
+    <ProgressBar
+        android:id="@+id/detailProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

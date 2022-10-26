@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+apply from: '../library.gradle'
+
+android {
+
+    packagingOptions {
+        jniLibs {
+            excludes += ['META-INF/*']
+        }
+        resources {
+            excludes += ['META-INF/*']
+        }
+    }
+    namespace 'com.orbitmvi.core.mvi'
+}
+
+dependencies {
+    implementation project(Modules.core_utils)
+
+    implementation Libs.coroutines_android
+    implementation Libs.orbit
+    implementation Libs.viewmodel_ktx
+}

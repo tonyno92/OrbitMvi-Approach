@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply from: '../library.gradle'
+
+android {
+
+    namespace 'com.orbitmvi.feature.details'
+    buildFeatures {
+        viewBinding true
+    }
+    packagingOptions {
+        jniLibs {
+            excludes += ['META-INF/*']
+        }
+        resources {
+            excludes += ['META-INF/*']
+        }
+    }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation project(Modules.core_mvi)
+    implementation project(Modules.core_networks)
+    implementation project(Modules.core_utils)
+    implementation project(Modules.feature_country_list)
+
+    implementation Libs.appcompat
+    implementation Libs.coil
+    implementation Libs.constraint_layout
+    implementation Libs.gson
+    implementation Libs.koin
+    implementation Libs.material
+    implementation Libs.orbit
+    implementation Libs.retrofit
+
+    testImplementation TestLibs.core_testing
+    testImplementation TestLibs.coroutines_test
+    testImplementation TestLibs.junit
+    testImplementation TestLibs.mockk
+    testImplementation TestLibs.orbit
+
+    debugImplementation TestLibs.fragment_testing
+    debugImplementation TestLibs.test_core
+    androidTestImplementation TestLibs.espresso_core
+    androidTestImplementation TestLibs.kakao
+    androidTestImplementation Libs.koin
+    androidTestImplementation TestLibs.koin_test
+    androidTestImplementation TestLibs.mockk_android
+    androidTestImplementation TestLibs.test_core
+    androidTestImplementation TestLibs.test_ext
+    androidTestImplementation TestLibs.test_rules
+    androidTestImplementation TestLibs.test_runner
+}

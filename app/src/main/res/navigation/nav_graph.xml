@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/countryListFragment">
+
+    <fragment
+        android:id="@+id/countryListFragment"
+        android:name="com.orbitmvi.feature.list.presentation.CountryListFragment"
+        tools:layout="@layout/fragment_country_list">
+
+        <action
+            android:id="@+id/actionCountryDetails"
+            app:destination="@id/countryDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/countryDetailsFragment"
+        android:name="com.orbitmvi.feature.details.presentation.CountryDetailFragment"
+        android:label="CountryDetailsFragment"
+        tools:layout="@layout/fragment_country_details">
+
+        <argument
+            android:name="country_id"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

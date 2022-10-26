@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="detail_flag_height">230dp</dimen>
+    <dimen name="expanded_text_margin_end">132dp</dimen>
+    <dimen name="coatOfArms_width">100dp</dimen>
+</resources>

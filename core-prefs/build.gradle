@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+apply from: '../library.gradle'
+
+android {
+
+    packagingOptions {
+        jniLibs {
+            excludes += ['META-INF/*']
+        }
+        resources {
+            excludes += ['META-INF/*']
+        }
+    }
+    namespace 'com.orbitmvi.core.prefs'
+}
+
+dependencies {
+    implementation Libs.koin
+}
