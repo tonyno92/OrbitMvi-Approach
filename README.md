@@ -1,4 +1,4 @@
-# OrbitMvi-Approach
+# OrbitMvi-Approach (An Android Redux implementations)
 
 The goal of the test is to create an app that shows information about countries around the world using [REST-Country](https://restcountries.com/)
 The app has to display a list of countries with their flags, you can open the detail screen by
